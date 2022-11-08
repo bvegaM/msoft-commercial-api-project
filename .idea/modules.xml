@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/api-externas/directv-service/directv-service.iml" filepath="$PROJECT_DIR$/api-externas/directv-service/directv-service.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/msoft-commercial-api-project.iml" filepath="$PROJECT_DIR$/.idea/msoft-commercial-api-project.iml" />
+      <module fileurl="file://$PROJECT_DIR$/services-consume/services-consume.iml" filepath="$PROJECT_DIR$/services-consume/services-consume.iml" />
+      <module fileurl="file://$PROJECT_DIR$/api-externas/water-service/water-service.iml" filepath="$PROJECT_DIR$/api-externas/water-service/water-service.iml" />
+    </modules>
+  </component>
+</project>
