@@ -1,0 +1,13 @@
+server:
+  servlet:
+    context-path: /historiesWs
+spring:
+  application:
+    name: history-service
+  cloud:
+    config:
+      enabled: true
+      uri: http://localhost:8081
+  mvc:
+    pathmatch:
+      matching-strategy: ANT_PATH_MATCHER
