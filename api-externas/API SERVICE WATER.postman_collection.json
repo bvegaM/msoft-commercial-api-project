@@ -1,0 +1,136 @@
+{
+	"info": {
+		"_postman_id": "f981678f-7de9-4afe-8cc1-894f1ea422e6",
+		"name": "API SERVICE WATER",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "6816930"
+	},
+	"item": [
+		{
+			"name": "Get Service Water By Cedula Cristian",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8005/api/consulta_agua/cliente/0103767661",
+					"host": [
+						"localhost"
+					],
+					"port": "8005",
+					"path": [
+						"api",
+						"consulta_agua",
+						"cliente",
+						"0103767661"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Service Water By Cedula Mayra",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8005/api/consulta_agua/cliente/0301560280",
+					"host": [
+						"localhost"
+					],
+					"port": "8005",
+					"path": [
+						"api",
+						"consulta_agua",
+						"cliente",
+						"0301560280"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Service Water By Cedula Enrique",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8005/api/consulta_agua/cliente/0101056885",
+					"host": [
+						"localhost"
+					],
+					"port": "8005",
+					"path": [
+						"api",
+						"consulta_agua",
+						"cliente",
+						"0101056885"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Service Water By Contract 1",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8005/api/consulta_agua/contrato/1",
+					"host": [
+						"localhost"
+					],
+					"port": "8005",
+					"path": [
+						"api",
+						"consulta_agua",
+						"contrato",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Service Water By Contract 2",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8005/api/consulta_agua/contrato/2",
+					"host": [
+						"localhost"
+					],
+					"port": "8005",
+					"path": [
+						"api",
+						"consulta_agua",
+						"contrato",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Contract By Cedula Enrique",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8005/api/contratos/cliente/0101056885",
+					"host": [
+						"localhost"
+					],
+					"port": "8005",
+					"path": [
+						"api",
+						"contratos",
+						"cliente",
+						"0101056885"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

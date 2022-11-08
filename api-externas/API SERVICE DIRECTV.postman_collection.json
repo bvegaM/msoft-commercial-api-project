@@ -1,0 +1,114 @@
+{
+	"info": {
+		"_postman_id": "65fc5ea3-e9a7-4953-a9e4-bb5fb1343a80",
+		"name": "API SERVICE DIRECTV",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "6816930"
+	},
+	"item": [
+		{
+			"name": "Get Service Directv By Cedula Cristian",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"cli_dni\": \"0103767661\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8004/servicio_api/cliente",
+					"host": [
+						"localhost"
+					],
+					"port": "8004",
+					"path": [
+						"servicio_api",
+						"cliente"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Service Directv By Cedula Mayra",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"cli_dni\": \"0301560280\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8004/servicio_api/cliente",
+					"host": [
+						"localhost"
+					],
+					"port": "8004",
+					"path": [
+						"servicio_api",
+						"cliente"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Service Directv By Cedula Enrique",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"cli_dni\": \"0101056885\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8004/servicio_api/cliente",
+					"host": [
+						"localhost"
+					],
+					"port": "8004",
+					"path": [
+						"servicio_api",
+						"cliente"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Promation By Date",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8004/servicio_api/promocion/2022-11-05",
+					"host": [
+						"localhost"
+					],
+					"port": "8004",
+					"path": [
+						"servicio_api",
+						"promocion",
+						"2022-11-05"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
