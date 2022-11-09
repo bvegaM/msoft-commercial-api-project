@@ -4,6 +4,9 @@ import java.time.LocalDate;
 
 public class ResponseUserAmmount {
 
+
+    private String serviceCode;
+    private String serviceName;
     private String dni;
     private String contractNumber;
     private String customer;
@@ -61,6 +64,13 @@ public class ResponseUserAmmount {
 
     public LocalDate getIssueDate() { return issueDate; }
     public void setIssueDate(LocalDate issueDate) { this.issueDate = issueDate; }
+
+    public String getServiceCode() { return serviceCode; }
+    public void setServiceCode(String serviceCode) { this.serviceCode = serviceCode; }
+
+    public String getServiceName() { return serviceName; }
+    public void setServiceName(String serviceName) { this.serviceName = serviceName; }
+
 
 
 }

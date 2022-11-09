@@ -5,12 +5,16 @@ import java.util.List;
 
 public class ResponseUserPromotions {
 
+    private String serviceCode;
+    private String serviceName;
     private String title;
     private String detail;
     private String uri;
     private LocalDate start_date;
     private LocalDate end_date;
     private List<String> pictures;
+
+
 
 
     public ResponseUserPromotions() { }
@@ -41,6 +45,12 @@ public class ResponseUserPromotions {
 
     public List<String> getPictures() { return pictures; }
     public void setPictures(List<String> pictures) { this.pictures = pictures; }
+
+    public String getServiceCode() { return serviceCode; }
+    public void setServiceCode(String serviceCode) { this.serviceCode = serviceCode; }
+
+    public String getServiceName() { return serviceName; }
+    public void setServiceName(String serviceName) { this.serviceName = serviceName; }
 
 
 }

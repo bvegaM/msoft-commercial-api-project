@@ -134,6 +134,25 @@ public class ServicePartnerServiceImpl implements  ServicePartnerService {
                 }
             }
         });
+
+        if(this.responseUserAmmount != null) {
+            this.responseUserAmmount.stream().forEach((item) -> {
+                item.setServiceCode(servicePartner.getCode());
+                item.setServiceName(servicePartner.getName());
+            });
+        }
+        if(this.responseUserContract != null) {
+            this.responseUserContract.stream().forEach((item) -> {
+                item.setServiceCode(servicePartner.getCode());
+                item.setServiceName(servicePartner.getName());
+            });
+        }
+        if(this.responseUserPromotions != null) {
+            this.responseUserPromotions.stream().forEach((item) -> {
+                item.setServiceCode(servicePartner.getCode());
+                item.setServiceName(servicePartner.getName());
+            });
+        }
     }
 
     private void FindAmmountService_S0001(ApiDetail detail) {
