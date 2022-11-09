@@ -26,4 +26,10 @@ spring:
                   uri: lb://auth-service
                   predicates:
                     - Path=/auth/**
+                - id: service-affiliation
+                  uri: lb://service-affiliation
+                  predicates:
+                    - Path=/servicePartners/**
+                  filters:
+                    - AuthFilter
                    

@@ -6,20 +6,35 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="eureka-service" />
+        <module name="auth-service" />
+        <module name="config-service" />
+        <module name="gateway-service" />
+        <module name="history-service" />
+        <module name="water-service" />
         <module name="services-consume" />
         <module name="directv-service" />
-        <module name="water-service" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="auth-service" target="11" />
+      <module name="config-service" target="11" />
       <module name="directv-service" target="17" />
+      <module name="eureka-service" target="11" />
+      <module name="gateway-service" target="11" />
+      <module name="history-service" target="11" />
       <module name="services-consume" target="17" />
       <module name="water-service" target="17" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="auth-service" options="-parameters" />
+      <module name="config-service" options="-parameters" />
       <module name="directv-service" options="-parameters" />
+      <module name="eureka-service" options="-parameters" />
+      <module name="gateway-service" options="-parameters" />
+      <module name="history-service" options="-parameters" />
       <module name="services-consume" options="-parameters" />
       <module name="water-service" options="-parameters" />
     </option>

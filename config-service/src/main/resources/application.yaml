@@ -6,8 +6,8 @@ spring:
     config:
       server:
         git:
-          default-label: auth-service
-          uri: https://github.com/bvegaM/microservices-example-users
+          default-label: main
+          uri: https://github.com/pscalderonm/msoft-commercial-api-project
           search-paths: config-data
   application:
     name: config-service

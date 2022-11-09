@@ -5,6 +5,16 @@
     <file url="file://$PROJECT_DIR$/api-externas/directv-service/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/api-externas/water-service/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/api-externas/water-service/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/auth-service/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/auth-service/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/config-service/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/config-service/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/eureka-service/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/eureka-service/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/gateway-service/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/gateway-service/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/history-service/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/history-service/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/services-consume/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/services-consume/src/main/resources" charset="UTF-8" />
   </component>
