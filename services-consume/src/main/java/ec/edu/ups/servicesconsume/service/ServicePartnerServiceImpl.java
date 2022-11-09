@@ -35,6 +35,9 @@ public class ServicePartnerServiceImpl implements  ServicePartnerService {
     private List<ResponseUserPromotions> responseUserPromotions;
     private boolean reset_variables = true;
 
+    private String serviceCodeActual = "";
+    private String serviceNameActual = "";
+
 
     @Override
     public List<ServicePartner> findAll() {
@@ -114,6 +117,9 @@ public class ServicePartnerServiceImpl implements  ServicePartnerService {
             this.responseUserPromotions = new ArrayList<>();
         }
 
+        this.serviceCodeActual = servicePartner.getCode();
+        this.serviceNameActual = servicePartner.getName();
+
         apiDetails.stream().forEach((item) -> {
             item.setUri(request.getStringReplace(item.getUri()));
             item.setBody(request.getStringReplace(item.getBody()));
@@ -134,25 +140,6 @@ public class ServicePartnerServiceImpl implements  ServicePartnerService {
                 }
             }
         });
-
-        if(this.responseUserAmmount != null) {
-            this.responseUserAmmount.stream().forEach((item) -> {
-                item.setServiceCode(servicePartner.getCode());
-                item.setServiceName(servicePartner.getName());
-            });
-        }
-        if(this.responseUserContract != null) {
-            this.responseUserContract.stream().forEach((item) -> {
-                item.setServiceCode(servicePartner.getCode());
-                item.setServiceName(servicePartner.getName());
-            });
-        }
-        if(this.responseUserPromotions != null) {
-            this.responseUserPromotions.stream().forEach((item) -> {
-                item.setServiceCode(servicePartner.getCode());
-                item.setServiceName(servicePartner.getName());
-            });
-        }
     }
 
     private void FindAmmountService_S0001(ApiDetail detail) {
@@ -167,7 +154,10 @@ public class ServicePartnerServiceImpl implements  ServicePartnerService {
         if(dtos == null) { throw  new RuntimeException("Error al consultar el detalle del servicio!!!"); }
 
         Arrays.stream(dtos).forEach((item) -> {
-            this.responseUserAmmount.add(item.convertoToResponseUser());
+            ResponseUserAmmount resp = item.convertoToResponseUser();
+                resp.setServiceCode(this.serviceCodeActual);
+                resp.setServiceName(this.serviceNameActual);
+            this.responseUserAmmount.add(resp);
         });
     }
 
@@ -183,7 +173,10 @@ public class ServicePartnerServiceImpl implements  ServicePartnerService {
         if(dtos == null) { throw  new RuntimeException("Error al consultar el detalle del servicio!!!"); }
 
         Arrays.stream(dtos).forEach((item) -> {
-            this.responseUserAmmount.add(item.convertoToResponseUser());
+            ResponseUserAmmount resp = item.convertToResponseUser();
+                resp.setServiceCode(this.serviceCodeActual);
+                resp.setServiceName(this.serviceNameActual);
+            this.responseUserAmmount.add(resp);
         });
     }
 
@@ -199,7 +192,10 @@ public class ServicePartnerServiceImpl implements  ServicePartnerService {
         if(dtos == null) { throw  new RuntimeException("Error al consultar el detalle del servicio!!!"); }
 
         Arrays.stream(dtos).forEach((item) -> {
-            this.responseUserContract.add(item.convertToResponseUser());
+            ResponseUserContract resp = item.convertToResponseUser();
+                resp.setServiceCode(this.serviceCodeActual);
+                resp.setServiceName(this.serviceNameActual);
+            this.responseUserContract.add(resp);
         });
     }
 
@@ -215,7 +211,10 @@ public class ServicePartnerServiceImpl implements  ServicePartnerService {
         if(dtos == null) { throw  new RuntimeException("Error al consultar el detalle del servicio!!!"); }
 
         Arrays.stream(dtos).forEach((item) -> {
-            this.responseUserPromotions.add(item.convertToResponseUser());
+            ResponseUserPromotions resp = item.convertToResponseUser();
+                resp.setServiceCode(this.serviceCodeActual);
+                resp.setServiceName(this.serviceNameActual);
+            this.responseUserPromotions.add(resp);
         });
     }
 
