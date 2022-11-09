@@ -2,7 +2,7 @@ package ec.edu.ups.servicesconsume.entity.respone;
 
 import java.time.LocalDate;
 
-public class ResponseUserAmmount {
+public class ResponseUserAmount {
 
 
     private String serviceCode;
@@ -19,9 +19,9 @@ public class ResponseUserAmmount {
     private String remarks;
 
 
-    public ResponseUserAmmount() { }
+    public ResponseUserAmount() { }
 
-    public ResponseUserAmmount(String dni, String contractNumber, String customer, Double ammount, Double ammountMin, Double ammountMax, LocalDate issueDate, LocalDate cutdate, LocalDate duedate, String remarks) {
+    public ResponseUserAmount(String dni, String contractNumber, String customer, Double ammount, Double ammountMin, Double ammountMax, LocalDate issueDate, LocalDate cutdate, LocalDate duedate, String remarks) {
         this.dni = dni;
         this.contractNumber = contractNumber;
         this.customer = customer;

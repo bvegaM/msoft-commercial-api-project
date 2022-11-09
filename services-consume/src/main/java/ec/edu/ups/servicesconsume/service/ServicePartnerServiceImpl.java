@@ -4,7 +4,7 @@ import ec.edu.ups.servicesconsume.entity.ApiDetail;
 import ec.edu.ups.servicesconsume.entity.ServicePartner;
 import ec.edu.ups.servicesconsume.entity.dto.*;
 import ec.edu.ups.servicesconsume.entity.request.RequestService;
-import ec.edu.ups.servicesconsume.entity.respone.ResponseUserAmmount;
+import ec.edu.ups.servicesconsume.entity.respone.ResponseUserAmount;
 import ec.edu.ups.servicesconsume.entity.respone.ResponseUserContract;
 import ec.edu.ups.servicesconsume.entity.respone.ResponseUserPromotions;
 import ec.edu.ups.servicesconsume.enums.ApiMethod;
@@ -30,7 +30,7 @@ public class ServicePartnerServiceImpl implements  ServicePartnerService {
     @Autowired
     private RestTemplate restTemplate;
 
-    private List<ResponseUserAmmount> responseUserAmmount;
+    private List<ResponseUserAmount> responseUserAmount;
     private List<ResponseUserContract> responseUserContract;
     private List<ResponseUserPromotions> responseUserPromotions;
     private boolean reset_variables = true;
@@ -60,23 +60,23 @@ public class ServicePartnerServiceImpl implements  ServicePartnerService {
 
 
     @Override
-    public List<ResponseUserAmmount> getAmmountServicePartnerByDNI(RequestService request, String service_name) {
+    public List<ResponseUserAmount> getAmountServicePartnerByDNI(RequestService request, String service_name) {
         reset_variables = true;
-        getAmmountServicePartner(request, service_name, ApiType.AMMOUNT, "dni");
-        return this.responseUserAmmount;
+        getAmountServicePartner(request, service_name, ApiType.AMMOUNT, "dni");
+        return this.responseUserAmount;
     }
 
     @Override
-    public List<ResponseUserAmmount> getAmmountServicePartnerByContract(RequestService request, String service_name) {
+    public List<ResponseUserAmount> getAmountServicePartnerByContract(RequestService request, String service_name) {
         reset_variables = true;
-        getAmmountServicePartner(request, service_name, ApiType.AMMOUNT, "contract");
-        return this.responseUserAmmount;
+        getAmountServicePartner(request, service_name, ApiType.AMMOUNT, "contract");
+        return this.responseUserAmount;
     }
 
     @Override
     public List<ResponseUserContract> getContractServicePartnerByDNI(RequestService request, String service_name) {
         reset_variables = true;
-        getAmmountServicePartner(request, service_name, ApiType.CONTRACT, "dni");
+        getAmountServicePartner(request, service_name, ApiType.CONTRACT, "dni");
         return this.responseUserContract;
     }
 
@@ -84,25 +84,25 @@ public class ServicePartnerServiceImpl implements  ServicePartnerService {
     public List<ResponseUserPromotions> getPromotionServicePartner(String service_name) {
         reset_variables = true;
         RequestService request = new RequestService("", "");
-        getAmmountServicePartner(request, service_name, ApiType.PROMOTION, "date");
+        getAmountServicePartner(request, service_name, ApiType.PROMOTION, "date");
         return this.responseUserPromotions;
     }
 
     @Override
-    public List<ResponseUserAmmount> getAmmountOfAllServicePartnerByDNI(String user_dni) {
+    public List<ResponseUserAmount> getAmountOfAllServicePartnerByDNI(String user_dni) {
         RequestService request = new RequestService(user_dni, "");
         reset_variables = true;
 
         List<ServicePartner> list = (List<ServicePartner>) servicePartnerRepository.findAll();
         list.stream().forEach((item) -> {
-            getAmmountServicePartner(request, item.getCode(), ApiType.AMMOUNT, "dni");
+            getAmountServicePartner(request, item.getCode(), ApiType.AMMOUNT, "dni");
             reset_variables = false;
         });
 
-        return this.responseUserAmmount;
+        return this.responseUserAmount;
     }
 
-    private void getAmmountServicePartner(RequestService request, String service_name, ApiType apiType, String type) {
+    private void getAmountServicePartner(RequestService request, String service_name, ApiType apiType, String type) {
         Optional<ServicePartner> optional = servicePartnerRepository.findByCode(service_name);
         ServicePartner servicePartner = optional.orElseThrow();
 
@@ -112,7 +112,7 @@ public class ServicePartnerServiceImpl implements  ServicePartnerService {
                 .collect(Collectors.toList());
 
         if(reset_variables) {
-            this.responseUserAmmount = new ArrayList<>();
+            this.responseUserAmount = new ArrayList<>();
             this.responseUserContract = new ArrayList<>();
             this.responseUserPromotions = new ArrayList<>();
         }
@@ -125,8 +125,8 @@ public class ServicePartnerServiceImpl implements  ServicePartnerService {
             item.setBody(request.getStringReplace(item.getBody()));
             if(apiType.equals(ApiType.AMMOUNT)) {
                 switch (service_name) {
-                    case "S0001": FindAmmountService_S0001(item); break;
-                    case "S0002": FindAmmountService_S0002(item);  break;
+                    case "S0001": FindAmountService_S0001(item); break;
+                    case "S0002": FindAmountService_S0002(item);  break;
                 }
             }
             if(apiType.equals(ApiType.CONTRACT)) {
@@ -142,7 +142,7 @@ public class ServicePartnerServiceImpl implements  ServicePartnerService {
         });
     }
 
-    private void FindAmmountService_S0001(ApiDetail detail) {
+    private void FindAmountService_S0001(ApiDetail detail) {
         ResponseEntity<S0001_ServiceWaterAmmountDTO[]> response = null;
         if(ApiMethod.GET.equals(detail.getMethod())) {
             response = restTemplate.getForEntity(detail.getUri(), S0001_ServiceWaterAmmountDTO[].class);
@@ -154,14 +154,14 @@ public class ServicePartnerServiceImpl implements  ServicePartnerService {
         if(dtos == null) { throw  new RuntimeException("Error al consultar el detalle del servicio!!!"); }
 
         Arrays.stream(dtos).forEach((item) -> {
-            ResponseUserAmmount resp = item.convertoToResponseUser();
+            ResponseUserAmount resp = item.convertoToResponseUser();
                 resp.setServiceCode(this.serviceCodeActual);
                 resp.setServiceName(this.serviceNameActual);
-            this.responseUserAmmount.add(resp);
+            this.responseUserAmount.add(resp);
         });
     }
 
-    private void FindAmmountService_S0002(ApiDetail detail) {
+    private void FindAmountService_S0002(ApiDetail detail) {
         ResponseEntity<S0002_DirectvAmountDTO[]> response = null;
         if(ApiMethod.GET.equals(detail.getMethod())) {
             response = restTemplate.getForEntity(detail.getUri(), S0002_DirectvAmountDTO[].class);
@@ -173,10 +173,10 @@ public class ServicePartnerServiceImpl implements  ServicePartnerService {
         if(dtos == null) { throw  new RuntimeException("Error al consultar el detalle del servicio!!!"); }
 
         Arrays.stream(dtos).forEach((item) -> {
-            ResponseUserAmmount resp = item.convertToResponseUser();
+            ResponseUserAmount resp = item.convertToResponseUser();
                 resp.setServiceCode(this.serviceCodeActual);
                 resp.setServiceName(this.serviceNameActual);
-            this.responseUserAmmount.add(resp);
+            this.responseUserAmount.add(resp);
         });
     }
 

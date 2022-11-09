@@ -8,7 +8,7 @@ public class ResponseUserContract {
     private String serviceName;
     private String dni;
     private String address;
-    private LocalDate dateSuscription;
+    private LocalDate dateSubscription;
 
 
 
@@ -17,7 +17,7 @@ public class ResponseUserContract {
     public ResponseUserContract(String dni, String address, LocalDate dateSuscription) {
         this.dni = dni;
         this.address = address;
-        this.dateSuscription = dateSuscription;
+        this.dateSubscription = dateSuscription;
     }
 
 
@@ -27,8 +27,8 @@ public class ResponseUserContract {
     public String getAddress() { return address; }
     public void setAddress(String address) { this.address = address; }
 
-    public LocalDate getDateSuscription() { return dateSuscription; }
-    public void setDateSuscription(LocalDate dateSuscription) { this.dateSuscription = dateSuscription; }
+    public LocalDate getDateSubscription() { return dateSubscription; }
+    public void setDateSubscription(LocalDate dateSubscription) { this.dateSubscription = dateSubscription; }
 
     public String getServiceCode() { return serviceCode; }
     public void setServiceCode(String serviceCode) { this.serviceCode = serviceCode; }

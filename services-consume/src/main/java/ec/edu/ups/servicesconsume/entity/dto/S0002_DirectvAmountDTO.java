@@ -1,6 +1,6 @@
 package ec.edu.ups.servicesconsume.entity.dto;
 
-import ec.edu.ups.servicesconsume.entity.respone.ResponseUserAmmount;
+import ec.edu.ups.servicesconsume.entity.respone.ResponseUserAmount;
 
 import java.time.LocalDate;
 
@@ -63,8 +63,8 @@ public class S0002_DirectvAmountDTO {
     public String getObservacion() { return observacion; }
     public void setObservacion(String observacion) { this.observacion = observacion; }
 
-    public ResponseUserAmmount convertToResponseUser() {
-        ResponseUserAmmount dto = new ResponseUserAmmount(this.cli_dni, this.cli_contrato, this.cli_nombres, this.deuda_total, this.deuda_minimo, this.deuda_total,
+    public ResponseUserAmount convertToResponseUser() {
+        ResponseUserAmount dto = new ResponseUserAmount(this.cli_dni, this.cli_contrato, this.cli_nombres, this.deuda_total, this.deuda_minimo, this.deuda_total,
                 this.deuda_emision, this.deuda_corte, this.deuda_vencimiento, this.observacion);
         return  dto;
     }

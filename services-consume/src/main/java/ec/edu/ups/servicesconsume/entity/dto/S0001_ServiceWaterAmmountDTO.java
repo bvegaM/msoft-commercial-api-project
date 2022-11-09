@@ -1,6 +1,6 @@
 package ec.edu.ups.servicesconsume.entity.dto;
 
-import ec.edu.ups.servicesconsume.entity.respone.ResponseUserAmmount;
+import ec.edu.ups.servicesconsume.entity.respone.ResponseUserAmount;
 
 import java.time.LocalDate;
 
@@ -84,8 +84,8 @@ public class S0001_ServiceWaterAmmountDTO {
     public void setValorTotal(Double valorTotal) { this.valorTotal = valorTotal; }
 
 
-    public ResponseUserAmmount convertoToResponseUser() {
-        ResponseUserAmmount dto = new ResponseUserAmmount(this.cedula, this.contrato, this.nombre, this.valorTotal, this.valorMinimo, this.valorTotal,
+    public ResponseUserAmount convertoToResponseUser() {
+        ResponseUserAmount dto = new ResponseUserAmount(this.cedula, this.contrato, this.nombre, this.valorTotal, this.valorMinimo, this.valorTotal,
                 this.fechaEmision, this.fechaCorte, this.fechaMaxPago, this.observacion);
         return  dto;
     }
