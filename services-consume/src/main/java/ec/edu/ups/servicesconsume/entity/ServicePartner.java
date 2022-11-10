@@ -38,6 +38,15 @@ public class ServicePartner {
         this.detail = detail;
     }
 
+    public ServicePartner(String code, String name, String status, LocalDate dateStarting, LocalDate dateStopping, String detail) {
+        this.code = code;
+        this.name = name;
+        this.status = status;
+        this.dateStarting = dateStarting;
+        this.dateStopping = dateStopping;
+        this.detail = detail;
+    }
+
     public ServicePartner(Long id, String code, String name, String status, LocalDate dateStarting, LocalDate dateStopping, String detail, List<ApiDetail> apiDetails) {
         this.id = id;
         this.code = code;
