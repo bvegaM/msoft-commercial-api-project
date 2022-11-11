@@ -2,12 +2,12 @@ server:
   port: 8081
 
 spring:
+  profiles:
+    active: native
   cloud:
     config:
       server:
-        git:
-          default-label: main
-          uri: https://github.com/bvegaM/config-project
-          search-paths: config-data
+        native:
+          search-locations: config-data
   application:
     name: config-service
