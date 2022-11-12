@@ -1,21 +1,18 @@
 {
 	"info": {
-		"_postman_id": "ef719291-819f-4811-bf02-18b919fa0d1c",
-		"name": "M06_Proyecto",
+		"_postman_id": "f233c193-bca7-4415-84a6-803f301808df",
+		"name": "M06_Graphql",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
 	"item": [
 		{
-			"name": "Login - Bearer",
+			"name": "getAllCustomers",
 			"request": {
-				"auth": {
-					"type": "noauth"
-				},
 				"method": "POST",
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"username\": \"admin\",\r\n    \"password\": \"admin.123\"\r\n}\r\n",
+					"raw": "{\r\n    \"query\": \"{getAllCustomers { name id phoneNumber notes} }\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -23,164 +20,110 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:8080/auth/authenticate",
+					"raw": "http://localhost:8080/graphql",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
 					"port": "8080",
 					"path": [
-						"auth",
-						"authenticate"
+						"graphql"
 					]
 				}
 			},
 			"response": []
 		},
 		{
-			"name": "Interno - Service - Getl All",
+			"name": "saveCustomer",
 			"request": {
-				"auth": {
-					"type": "bearer",
-					"bearer": [
-						{
-							"key": "token",
-							"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImlhdCI6MTY2Nzk2MTYwNSwiZXhwIjoxNjY3OTYyMjA1fQ.UFMvQIIxBPcgqh9PD1Ffn39uc08Xv78FT9XD72Vl261EHxpYj_pbVN3Py1V1DKr8vtiaGF1P49yw-GbM6ywnWQ",
-							"type": "string"
-						}
-					]
-				},
-				"method": "GET",
+				"method": "POST",
 				"header": [],
+				"body": {
+					"mode": "graphql",
+					"graphql": {
+						"query": "\r\nmutation {\r\n    saveCustomer (name: \"andres\", phoneNumber: \"2222\", notes: \"nota....\") \r\n      { name id phoneNumber notes}\r\n}\r\n\r\n",
+						"variables": ""
+					},
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
 				"url": {
-					"raw": "http://localhost:8080/servicePartners/v1/",
+					"raw": "http://localhost:8080/graphql",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
 					"port": "8080",
 					"path": [
-						"servicePartners",
-						"v1",
-						""
+						"graphql"
 					]
 				}
 			},
 			"response": []
 		},
 		{
-			"name": "Interno - Service - FindById",
+			"name": "deleteCustomer",
 			"request": {
-				"auth": {
-					"type": "bearer",
-					"bearer": [
-						{
-							"key": "token",
-							"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImlhdCI6MTY2Nzk2MTYwNSwiZXhwIjoxNjY3OTYyMjA1fQ.UFMvQIIxBPcgqh9PD1Ffn39uc08Xv78FT9XD72Vl261EHxpYj_pbVN3Py1V1DKr8vtiaGF1P49yw-GbM6ywnWQ",
-							"type": "string"
-						}
-					]
-				},
-				"method": "GET",
+				"method": "POST",
 				"header": [],
+				"body": {
+					"mode": "graphql",
+					"graphql": {
+						"query": "mutation {\r\n    deleteCustomer ( id: 3 ) \r\n      \r\n}\r\n",
+						"variables": ""
+					}
+				},
 				"url": {
-					"raw": "http://localhost:8080/servicePartners/v1/1",
+					"raw": "http://localhost:8080/graphql",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
 					"port": "8080",
 					"path": [
-						"servicePartners",
-						"v1",
-						"1"
+						"graphql"
 					]
 				}
 			},
 			"response": []
 		},
 		{
-			"name": "Interno - Service - FindByCode",
+			"name": "updateCustomerName",
 			"request": {
-				"auth": {
-					"type": "bearer",
-					"bearer": [
-						{
-							"key": "token",
-							"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImlhdCI6MTY2Nzk2MTYwNSwiZXhwIjoxNjY3OTYyMjA1fQ.UFMvQIIxBPcgqh9PD1Ffn39uc08Xv78FT9XD72Vl261EHxpYj_pbVN3Py1V1DKr8vtiaGF1P49yw-GbM6ywnWQ",
-							"type": "string"
-						}
-					]
-				},
-				"method": "GET",
+				"method": "POST",
 				"header": [],
+				"body": {
+					"mode": "graphql",
+					"graphql": {
+						"query": "\r\nmutation {\r\n    updateCustomerName (newName: \"andres xxxxx\", id: 2 ) \r\n      { name id phoneNumber notes}\r\n}\r\n",
+						"variables": ""
+					}
+				},
 				"url": {
-					"raw": "http://localhost:8080/servicePartners/v1/code/S0002",
+					"raw": "http://localhost:8080/graphql",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
 					"port": "8080",
 					"path": [
-						"servicePartners",
-						"v1",
-						"code",
-						"S0002"
+						"graphql"
 					]
 				}
 			},
 			"response": []
 		},
 		{
-			"name": "Get User Services",
+			"name": "getPet",
 			"request": {
-				"auth": {
-					"type": "bearer",
-					"bearer": [
-						{
-							"key": "token",
-							"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImlhdCI6MTY2Nzk2MTYwNSwiZXhwIjoxNjY3OTYyMjA1fQ.UFMvQIIxBPcgqh9PD1Ffn39uc08Xv78FT9XD72Vl261EHxpYj_pbVN3Py1V1DKr8vtiaGF1P49yw-GbM6ywnWQ",
-							"type": "string"
-						}
-					]
-				},
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "http://localhost:8080/servicePartners/v1/api/services",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "8080",
-					"path": [
-						"servicePartners",
-						"v1",
-						"api",
-						"services"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "Ammount - ServiceByName WithDNI",
-			"request": {
-				"auth": {
-					"type": "bearer",
-					"bearer": [
-						{
-							"key": "token",
-							"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImlhdCI6MTY2Nzk2MTYwNSwiZXhwIjoxNjY3OTYyMjA1fQ.UFMvQIIxBPcgqh9PD1Ffn39uc08Xv78FT9XD72Vl261EHxpYj_pbVN3Py1V1DKr8vtiaGF1P49yw-GbM6ywnWQ",
-							"type": "string"
-						}
-					]
-				},
 				"method": "POST",
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"dni\": \"0103767661\",\r\n    \"contract\": \"\"\r\n}",
+					"raw": "{\r\n    \"query\": \"{ getPet( id: 2) { name id birthDate notes type } }\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -188,42 +131,27 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:8080/servicePartners/v1/api/services/S0001/users",
+					"raw": "http://localhost:8080/graphql",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
 					"port": "8080",
 					"path": [
-						"servicePartners",
-						"v1",
-						"api",
-						"services",
-						"S0001",
-						"users"
+						"graphql"
 					]
 				}
 			},
 			"response": []
 		},
 		{
-			"name": "Ammount - ServiceByName WithDNI (2)",
+			"name": "getPets",
 			"request": {
-				"auth": {
-					"type": "bearer",
-					"bearer": [
-						{
-							"key": "token",
-							"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImlhdCI6MTY2Nzk2MTYwNSwiZXhwIjoxNjY3OTYyMjA1fQ.UFMvQIIxBPcgqh9PD1Ffn39uc08Xv78FT9XD72Vl261EHxpYj_pbVN3Py1V1DKr8vtiaGF1P49yw-GbM6ywnWQ",
-							"type": "string"
-						}
-					]
-				},
 				"method": "POST",
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"dni\": \"0103767661\",\r\n    \"contract\": \"\"\r\n}",
+					"raw": "{\r\n    \"query\": \"{ getPets { name id birthDate notes type } }\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -231,42 +159,58 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:8080/servicePartners/v1/api/services/S0002/users",
+					"raw": "http://localhost:8080/graphql",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
 					"port": "8080",
 					"path": [
-						"servicePartners",
-						"v1",
-						"api",
-						"services",
-						"S0002",
-						"users"
+						"graphql"
 					]
 				}
 			},
 			"response": []
 		},
 		{
-			"name": "Ammount - ServiceByName WithContract",
+			"name": "savePet",
 			"request": {
-				"auth": {
-					"type": "bearer",
-					"bearer": [
-						{
-							"key": "token",
-							"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImlhdCI6MTY2Nzk2MTYwNSwiZXhwIjoxNjY3OTYyMjA1fQ.UFMvQIIxBPcgqh9PD1Ffn39uc08Xv78FT9XD72Vl261EHxpYj_pbVN3Py1V1DKr8vtiaGF1P49yw-GbM6ywnWQ",
-							"type": "string"
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "graphql",
+					"graphql": {
+						"query": "\r\nmutation {\r\n    savePet (type: BIRD, name: \"pajaro 1\", ownerId: 3, birthDate: \"2022-01-03\", notes: \"notas\" ) \r\n      { name id type birthDate }\r\n}\r\n",
+						"variables": ""
+					},
+					"options": {
+						"raw": {
+							"language": "json"
 						}
-					]
+					}
 				},
+				"url": {
+					"raw": "http://localhost:8080/graphql",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"graphql"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getEmployee",
+			"request": {
 				"method": "POST",
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"dni\": \"\",\r\n    \"contract\": \"1\"\r\n}",
+					"raw": "{\r\n    \"query\": \"{ getEmployee( id: 1) { name id skills daysAvailable  } }\"\r\n}\r\n",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -274,45 +218,89 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:8080/servicePartners/v1/api/services/S0001/contract",
+					"raw": "http://localhost:8080/graphql",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
 					"port": "8080",
 					"path": [
-						"servicePartners",
-						"v1",
-						"api",
-						"services",
-						"S0001",
-						"contract"
+						"graphql"
 					]
 				}
 			},
 			"response": []
 		},
 		{
-			"name": "Contract- ServiceByName WithDNI",
-			"protocolProfileBehavior": {
-				"disableBodyPruning": true
-			},
+			"name": "saveEmployee",
 			"request": {
-				"auth": {
-					"type": "bearer",
-					"bearer": [
-						{
-							"key": "token",
-							"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImlhdCI6MTY2Nzk2MTYwNSwiZXhwIjoxNjY3OTYyMjA1fQ.UFMvQIIxBPcgqh9PD1Ffn39uc08Xv78FT9XD72Vl261EHxpYj_pbVN3Py1V1DKr8vtiaGF1P49yw-GbM6ywnWQ",
-							"type": "string"
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "graphql",
+					"graphql": {
+						"query": "\r\nmutation {\r\n    saveEmployee( id: 2, name: \"Andres\", skills: [ WALKING, SHAVING ], daysAvailable: [ SATURDAY, SUNDAY ] )\r\n      { name id skills daysAvailable }\r\n}\r\n",
+						"variables": ""
+					},
+					"options": {
+						"raw": {
+							"language": "json"
 						}
-					]
+					}
 				},
-				"method": "GET",
+				"url": {
+					"raw": "http://localhost:8080/graphql",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"graphql"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "updateEmployee",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "graphql",
+					"graphql": {
+						"query": "\r\nmutation {\r\n    updateEmployee( id: 1, daysAvailable: [ TUESDAY, THURSDAY ] )\r\n      { name id skills daysAvailable }\r\n}\r\n",
+						"variables": ""
+					},
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/graphql",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"graphql"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getOwnerByPet",
+			"request": {
+				"method": "POST",
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"dni\": \"0101056885\",\r\n    \"contract\": \"\"\r\n}\r\n",
+					"raw": "{\r\n    \"query\": \"{ getOwnerByPet( petId: 1 ) { name id phoneNumber notes } }\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -320,86 +308,213 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:8080/servicePartners/v1/api/services/S0001/contract",
+					"raw": "http://localhost:8080/graphql",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
 					"port": "8080",
 					"path": [
-						"servicePartners",
-						"v1",
-						"api",
-						"services",
-						"S0001",
-						"contract"
+						"graphql"
 					]
 				}
 			},
 			"response": []
 		},
 		{
-			"name": "Promotions - ServiceByName (Fecha_Actual)",
+			"name": "getPetsByOwner",
 			"request": {
-				"auth": {
-					"type": "bearer",
-					"bearer": [
-						{
-							"key": "token",
-							"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImlhdCI6MTY2Nzk2MTYwNSwiZXhwIjoxNjY3OTYyMjA1fQ.UFMvQIIxBPcgqh9PD1Ffn39uc08Xv78FT9XD72Vl261EHxpYj_pbVN3Py1V1DKr8vtiaGF1P49yw-GbM6ywnWQ",
-							"type": "string"
-						}
-					]
-				},
-				"method": "GET",
+				"method": "POST",
 				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"query\": \"{ getPetsByOwner( ownerId: 1 ) { name id birthDate notes type } }\"\r\n} ",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
 				"url": {
-					"raw": "http://localhost:8080/servicePartners/v1/api/services/S0002/promotions",
+					"raw": "http://localhost:8080/graphql",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
 					"port": "8080",
 					"path": [
-						"servicePartners",
-						"v1",
-						"api",
-						"services",
-						"S0002",
-						"promotions"
+						"graphql"
 					]
 				}
 			},
 			"response": []
 		},
 		{
-			"name": "Ammount - Get All ",
+			"name": "findEmployeesForService",
 			"request": {
-				"auth": {
-					"type": "bearer",
-					"bearer": [
-						{
-							"key": "token",
-							"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImlhdCI6MTY2Nzk2MTYwNSwiZXhwIjoxNjY3OTYyMjA1fQ.UFMvQIIxBPcgqh9PD1Ffn39uc08Xv78FT9XD72Vl261EHxpYj_pbVN3Py1V1DKr8vtiaGF1P49yw-GbM6ywnWQ",
-							"type": "string"
-						}
-					]
-				},
-				"method": "GET",
+				"method": "POST",
 				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"query\": \"{ findEmployeesForService( skills: [ SHAVING, WALKING ], date: \\\"2022-10-24\\\" ) { name id skills daysAvailable } }\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
 				"url": {
-					"raw": "http://localhost:8080/servicePartners/v1/api/services/0103767661",
+					"raw": "http://localhost:8080/graphql",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
 					"port": "8080",
 					"path": [
-						"servicePartners",
-						"v1",
-						"api",
-						"services",
-						"0103767661"
+						"graphql"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "createSchedule",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "graphql",
+					"graphql": {
+						"query": "\r\nmutation {\r\n    createSchedule( id: 1, date: \"2022-10-31\", employees: [ { id: 1} ], pets: [ {id: 1}, {id:2} ], activities: [ WALKING, SHAVING ] )\r\n      { id date employees { id name } pets { id name } activities }\r\n}\r\n",
+						"variables": ""
+					},
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/graphql",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"graphql"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getAllSchedules",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"query\": \"{ getAllSchedules { id date employees { id name } pets { id name } activities } }\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/graphql",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"graphql"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getScheduleForPet",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"query\": \"{ getScheduleForPet ( petID: 2 ) { id date employees { id name } pets { id name } activities } }\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/graphql",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"graphql"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getScheduleForEmployee",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"query\": \"{ getScheduleForEmployee ( employeeID: 1 ) { id date employees { id name } pets { id name customer { id name } } activities } }\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/graphql",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"graphql"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getScheduleForCustomer",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"query\": \"{ getScheduleForCustomer ( customerID: 2 ) { id date employees { id name } pets { id name customer { id name } } activities } }\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/graphql",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"graphql"
 					]
 				}
 			},
