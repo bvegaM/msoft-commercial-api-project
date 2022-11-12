@@ -7,8 +7,14 @@
 - Bryam Vega
 
 ## Instrucciones para correr el servicio
-//TODO: COmplementar los pasos para correr los servicios
+Para correr el presente proyecto se debe ejecutar en orden estos servicios:
 
+- 1 config-service: Contiene el servidor que tiene las configuraciones de los servicios
+- 2 eureka-service: Contiene el servidor para registrar los servicios
+- 3 auth-service: Contiene los servicios de autenticacion y autorizacion
+- 4 api-externas: Se debe correr los servicios que estan dentro de dicha carpeta para poder utilizar el siguiente servicio
+- 5 service-consume: Contiene un servicio que llama a los servicios de api-externas
+- 6 gateway-service: Contiene al servidor de gateway para estandarizar la comunicacion por puertos
 
 
 ## Pruebas Unitarias y de Integración
