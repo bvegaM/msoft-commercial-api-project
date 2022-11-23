@@ -19,7 +19,7 @@ Para correr el presente proyecto se debe ejecutar en orden estos servicios:
 
 ## Pruebas Unitarias y de Integración
 
-Las pruebas unitarias y de integración han sido ejecutadas a nivel del servicio **services-consume**, que es el punto central en donde convergen la llamada de los servicios a consumir.
+Las pruebas unitarias y de integración han sido ejecutadas a nivel del servicio **services-consume**, que es el punto central en donde convergen la llamada de los servicios a consumir. De igual forma existen pruebas a nivel de **auth-servive**.
 
 ## Documentación Swagger
 
