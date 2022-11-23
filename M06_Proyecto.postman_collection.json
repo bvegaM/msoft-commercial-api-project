@@ -1,0 +1,409 @@
+{
+	"info": {
+		"_postman_id": "ef719291-819f-4811-bf02-18b919fa0d1c",
+		"name": "M06_Proyecto",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "01 Login - Bearer",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\": \"admin\",\r\n    \"password\": \"admin.123\"\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/auth/authenticate",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"auth",
+						"authenticate"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "02 Interno - Service - Getl All",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImlhdCI6MTY2Nzk2MTYwNSwiZXhwIjoxNjY3OTYyMjA1fQ.UFMvQIIxBPcgqh9PD1Ffn39uc08Xv78FT9XD72Vl261EHxpYj_pbVN3Py1V1DKr8vtiaGF1P49yw-GbM6ywnWQ",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/servicePartners/v1/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"servicePartners",
+						"v1",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "03 Interno - Service - FindById",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImlhdCI6MTY2Nzk2MTYwNSwiZXhwIjoxNjY3OTYyMjA1fQ.UFMvQIIxBPcgqh9PD1Ffn39uc08Xv78FT9XD72Vl261EHxpYj_pbVN3Py1V1DKr8vtiaGF1P49yw-GbM6ywnWQ",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/servicePartners/v1/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"servicePartners",
+						"v1",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "04 Interno - Service - FindByCode",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImlhdCI6MTY2Nzk2MTYwNSwiZXhwIjoxNjY3OTYyMjA1fQ.UFMvQIIxBPcgqh9PD1Ffn39uc08Xv78FT9XD72Vl261EHxpYj_pbVN3Py1V1DKr8vtiaGF1P49yw-GbM6ywnWQ",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/servicePartners/v1/code/S0002",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"servicePartners",
+						"v1",
+						"code",
+						"S0002"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "05 Get User Services",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImlhdCI6MTY2Nzk2MTYwNSwiZXhwIjoxNjY3OTYyMjA1fQ.UFMvQIIxBPcgqh9PD1Ffn39uc08Xv78FT9XD72Vl261EHxpYj_pbVN3Py1V1DKr8vtiaGF1P49yw-GbM6ywnWQ",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/servicePartners/v1/api/services",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"servicePartners",
+						"v1",
+						"api",
+						"services"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "06 Ammount - ServiceByName WithDNI",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImlhdCI6MTY2Nzk2MTYwNSwiZXhwIjoxNjY3OTYyMjA1fQ.UFMvQIIxBPcgqh9PD1Ffn39uc08Xv78FT9XD72Vl261EHxpYj_pbVN3Py1V1DKr8vtiaGF1P49yw-GbM6ywnWQ",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"dni\": \"0103767661\",\r\n    \"contract\": \"\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/servicePartners/v1/api/services/S0001/users",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"servicePartners",
+						"v1",
+						"api",
+						"services",
+						"S0001",
+						"users"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "07 Ammount - ServiceByName WithDNI (2)",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImlhdCI6MTY2Nzk2MTYwNSwiZXhwIjoxNjY3OTYyMjA1fQ.UFMvQIIxBPcgqh9PD1Ffn39uc08Xv78FT9XD72Vl261EHxpYj_pbVN3Py1V1DKr8vtiaGF1P49yw-GbM6ywnWQ",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"dni\": \"0103767661\",\r\n    \"contract\": \"\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/servicePartners/v1/api/services/S0002/users",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"servicePartners",
+						"v1",
+						"api",
+						"services",
+						"S0002",
+						"users"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "08 Ammount - ServiceByName WithContract",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImlhdCI6MTY2Nzk2MTYwNSwiZXhwIjoxNjY3OTYyMjA1fQ.UFMvQIIxBPcgqh9PD1Ffn39uc08Xv78FT9XD72Vl261EHxpYj_pbVN3Py1V1DKr8vtiaGF1P49yw-GbM6ywnWQ",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"dni\": \"\",\r\n    \"contract\": \"1\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/servicePartners/v1/api/services/S0001/contract",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"servicePartners",
+						"v1",
+						"api",
+						"services",
+						"S0001",
+						"contract"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "09 Contract- ServiceByName WithDNI",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImlhdCI6MTY2Nzk2MTYwNSwiZXhwIjoxNjY3OTYyMjA1fQ.UFMvQIIxBPcgqh9PD1Ffn39uc08Xv78FT9XD72Vl261EHxpYj_pbVN3Py1V1DKr8vtiaGF1P49yw-GbM6ywnWQ",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"dni\": \"0101056885\",\r\n    \"contract\": \"\"\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/servicePartners/v1/api/services/S0001/contract",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"servicePartners",
+						"v1",
+						"api",
+						"services",
+						"S0001",
+						"contract"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "10 Promotions - ServiceByName (Fecha_Actual)",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImlhdCI6MTY2Nzk2MTYwNSwiZXhwIjoxNjY3OTYyMjA1fQ.UFMvQIIxBPcgqh9PD1Ffn39uc08Xv78FT9XD72Vl261EHxpYj_pbVN3Py1V1DKr8vtiaGF1P49yw-GbM6ywnWQ",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/servicePartners/v1/api/services/S0002/promotions",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"servicePartners",
+						"v1",
+						"api",
+						"services",
+						"S0002",
+						"promotions"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "11 Ammount - Get All",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImlhdCI6MTY2Nzk2MzcxMywiZXhwIjoxNjY3OTY0MzEzfQ.M0HIPR-Cfh8vyRaYvLnHjaKLfrQ1a0c0IG2wzbxdF4jwysYSgXRHwH8NC-RPH9fGI1eN5xtDCE2xcRCMOYBc1Q",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/servicePartners/v1/api/services/0103767661",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"servicePartners",
+						"v1",
+						"api",
+						"services",
+						"0103767661"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
